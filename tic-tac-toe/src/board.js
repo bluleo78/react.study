@@ -1,8 +1,9 @@
 import React from 'react';
 
 function Square(props) {
+  const className = props.isWinSquare ? "square winSquare":  "square" ;
   return (
-    <button className="square" onClick={props.onClick}>
+    <button className={className} onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -11,8 +12,11 @@ function Square(props) {
 
 class Board extends React.Component {
   renderSquare(i) {
+    const isWinSquare = this.props.winSquares && this.props.winSquares.includes(i);
     return (
       <Square
+        key = {i}
+        isWinSquare = {isWinSquare}
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
       />
@@ -24,7 +28,7 @@ class Board extends React.Component {
       <div>
         {
           [0, 1, 2].map( i => (
-            <div className="board-row">
+            <div key={i} className="board-row">
               {
                 [0, 1, 2].map( j => (
                   this.renderSquare(i * 3 + j)
