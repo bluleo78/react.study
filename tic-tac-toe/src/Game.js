@@ -1,8 +1,9 @@
 import React from 'react';
+import produce from 'immer';
 
-import Board from './board.js'
+import Board from './components/Board.js'
 
-class Game extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,18 +28,17 @@ class Game extends React.Component {
       return;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
-    this.setState({
-      history: history.concat([
-        {
-          squares: squares,
-          position: i,
-          winSquares: null
-        }
-      ]),
-      stepNumber: history.length,
-      selectedStepNumber: -1,
-      xIsNext: !this.state.xIsNext
+    const nextState = produce(this.state, state => {
+      state.history.push({
+        squares,
+        position: i,
+        winSquares: null,
+      });
+      state.stepNumber = state.history.length - 1;
+      state.selectedStepNumber = -1;
+      state.xIsNext = !this.state.xIsNext;
     });
+    this.setState(nextState);
   }
 
 
@@ -58,6 +58,7 @@ class Game extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
@@ -129,4 +130,4 @@ function calculateWinner(squares) {
   return null;
 }
 
-export default Game;
+export default App;
