@@ -1,7 +1,7 @@
 import React from 'react';
 import produce from 'immer';
 
-import Board from './components/Board.js'
+import Board from '../components/Board.js'
 
 class App extends React.Component {
   constructor(props) {
