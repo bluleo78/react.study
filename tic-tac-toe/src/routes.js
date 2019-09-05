@@ -12,8 +12,7 @@ function routes() {
     <div>
       <Switch>
         <Route exact path="/" component={RouteHome} />
-        <Route path="/about" component={RouteAbout} />
-        <Route path="/game" component={RouteGame} />
+        <Route path={['/about', '/game']} component={RouteMain} />
       </Switch>
     </div>
   );
@@ -27,21 +26,12 @@ function RouteHome() {
 }
 
 
-function RouteAbout() {
+function RouteMain() {
   return (
     <div>
       <Header/>
-      <About/>
-    </div>
-  );
-}
-
-
-function RouteGame() {
-  return (
-    <div>
-      <Header/>
-      <Game/>
+      <Route path='/about' component={About} />
+      <Route path='/game' component={Game} />
     </div>
   );
 }
