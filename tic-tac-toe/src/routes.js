@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -10,14 +10,40 @@ import Game from './pages/Game';
 function routes() {
   return (
     <div>
-      <Header />
-
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/game" component={Game} />
+      <Switch>
+        <Route exact path="/" component={RouteHome} />
+        <Route path="/about" component={RouteAbout} />
+        <Route path="/game" component={RouteGame} />
+      </Switch>
     </div>
   );
 }
 
+
+function RouteHome() {
+  return (
+    <Home/>
+  );
+}
+
+
+function RouteAbout() {
+  return (
+    <div>
+      <Header/>
+      <About/>
+    </div>
+  );
+}
+
+
+function RouteGame() {
+  return (
+    <div>
+      <Header/>
+      <Game/>
+    </div>
+  );
+}
 
 export default routes;
