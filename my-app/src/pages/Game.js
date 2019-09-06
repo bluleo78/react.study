@@ -1,5 +1,6 @@
 import React from 'react';
 import produce from 'immer';
+import { Container, Row, Button } from 'react-bootstrap';
 
 import Board from '../components/Board.js'
 
@@ -71,11 +72,11 @@ class App extends React.Component {
       
       return this.state.selectedStepNumber !== move ? (
         <li key={idx}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <Button variant="Link" size = "sm" onClick={() => this.jumpTo(move)}>{desc}</Button>
         </li>
       ) : (
         <li key={idx}>
-          <button onClick={() => this.jumpTo(move)}><strong>{desc}</strong></button>
+          <Button variant="Link" size = "sm" onClick={() => this.jumpTo(move)}><strong>{desc}</strong></Button>
         </li>
       );
     });
@@ -90,20 +91,27 @@ class App extends React.Component {
 
     return (
       <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            winSquares={current.winSquares}
-            onClick={i => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <div>
-            <button onClick = {() => this.handleSortBtnClick()}>Sort</button>
-          </div>
-          <ol>{moves}</ol>
-        </div>
+        <Container>
+          <Row>
+            <div className="game-board">
+              <Board
+                squares={current.squares}
+                winSquares={current.winSquares}
+                onClick={i => this.handleClick(i)}
+              />
+            </div>
+          </Row>
+          <Row>
+            <div className="game-info">
+              <div>{status}</div>
+              <div style = {{height: 30, marginTop: 10, marginBottom: 10}} >
+                <Button size = "sm" style = {{fontSize: 12}}
+                  onClick = {() => this.handleSortBtnClick()}>Sort</Button>
+              </div>
+              <ol>{moves}</ol>
+            </div>
+          </Row>
+        </Container>
       </div>
     );
   }

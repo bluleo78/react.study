@@ -1,13 +1,16 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-      <button><Link to="/game">시작</Link></button>
-    </div>
-  );
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Home</h2>
+        <Button onClick = {() => this.props.history.push('/game')}>시작</Button>
+      </div>
+    );
+  }
 }
 
-export default Home;
+export default withRouter(Home);

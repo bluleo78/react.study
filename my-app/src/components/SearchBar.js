@@ -1,4 +1,6 @@
 import React from 'react';
+import {Form} from 'react-bootstrap';
+
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -17,23 +19,19 @@ class SearchBar extends React.Component {
   
   render() {
     return (
-      <form>
-        <input
+      <Form>
+        <Form.Control 
           type="text"
           placeholder="Search..."
           value={this.props.filterText}
-          onChange={this.handleFilterTextChange}
+          onChange={this.handleFilterTextChange}/>
+        <Form.Check 
+          type="checkbox"
+          checked={this.props.inStockOnly}
+          onChange={this.handleInStockChange}
+          label="Only show products in stock"
         />
-        <p>
-          <input
-            type="checkbox"
-            checked={this.props.inStockOnly}
-            onChange={this.handleInStockChange}
-          />
-          {' '}
-          Only show products in stock
-        </p>
-      </form>
+      </Form>
     );
   }
 }

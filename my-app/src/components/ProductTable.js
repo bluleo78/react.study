@@ -1,11 +1,12 @@
 import React from 'react';
+import { Table } from 'react-bootstrap';
 
 class ProductCategoryRow extends React.Component {
   render() {
     const category = this.props.category;
     return (
       <tr>
-        <th colSpan="2">
+        <th colSpan="2" style = {{backgroundColor: "#00ffff"}}>
           {category}
         </th>
       </tr>
@@ -63,7 +64,7 @@ class ProductTable extends React.Component {
     });
 
     return (
-      <table>
+      <Table style = {{marginTop: 20}} size = "sm">
         <thead>
           <tr>
             <th>Name</th>
@@ -71,7 +72,7 @@ class ProductTable extends React.Component {
           </tr>
         </thead>
         <tbody>{rows}</tbody>
-      </table>
+      </Table>
     );
   }
 }

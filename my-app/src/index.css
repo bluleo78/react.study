@@ -45,11 +45,14 @@ ol, ul {
 }
 
 .game {
-  display: flex;
-  flex-direction: row;
+  width: 200px;
+}
+
+.game-board {
+  margin: auto;
 }
 
 .game-info {
-  margin-left: 20px;
+  margin: auto;
 }
 
