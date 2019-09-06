@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 function Square(props) {
   const className = props.isWinSquare ? "square winSquare":  "square" ;
@@ -40,6 +42,13 @@ class Board extends React.Component {
       </div>
     );
   }
+}
+
+
+Board.propTypes = {
+  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
+  winSquares: PropTypes.arrayOf(PropTypes.string),
+  onClick: PropTypes.func
 }
 
 export default Board;

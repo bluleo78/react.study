@@ -4,7 +4,7 @@ import { Container, Row, Button } from 'react-bootstrap';
 
 import Board from '../components/Board.js'
 
-class App extends React.Component {
+class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -137,4 +137,4 @@ function calculateWinner(squares) {
   return null;
 }
 
-export default App;
+export default Game;
