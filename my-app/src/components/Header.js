@@ -20,6 +20,9 @@ class Header extends React.Component {
         <Nav.Item>
           <Nav.Link eventKey = "/game">Game</Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey = "/todo">Todo</Nav.Link>
+        </Nav.Item>
       </Nav>
       ); 
   }
