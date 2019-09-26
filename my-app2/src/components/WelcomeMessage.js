@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 function WelcomeMessage({ name, unreadMsgCnt }) {
   return (
@@ -7,5 +9,15 @@ function WelcomeMessage({ name, unreadMsgCnt }) {
     </div>
   );
 }
+
+
+WelcomeMessage.propTypes = {
+  name: PropTypes.string.isRequired,
+  unreadMsgCnt: PropTypes.number,
+};
+
+WelcomeMessage.defaultProps = {
+  unreadMsgCnt: 0,
+};
 
 export default WelcomeMessage;

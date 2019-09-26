@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 class LoginView extends React.Component {
   constructor(props) {
@@ -24,14 +26,21 @@ class LoginView extends React.Component {
   render() {
     const styleView = { width: 300, height: 500, margin: 20 };
     const styleBody = {
-      width: '100%', height: '100%', outlineStyle: 'solid', outlineWidth: 'thin',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '100%',
+      outlineStyle: 'solid',
+      outlineWidth: 'thin',
     };
 
     return (
       <div style={styleView}>
         <div style={styleBody}>
           <label htmlFor="userNameInput">
-            이름:
+            Nick:
             <input
               type="text"
               onChange={this.handleChange}
@@ -44,5 +53,14 @@ class LoginView extends React.Component {
     );
   }
 }
+
+
+LoginView.propTypes = {
+  onSubmitLogin: PropTypes.func,
+};
+
+LoginView.defaultProps = {
+  onSubmitLogin: () => null,
+};
 
 export default LoginView;

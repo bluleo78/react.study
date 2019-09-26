@@ -7,4 +7,4 @@ storiesOf('App', module)
   .add('default', () => <App />);
 
 storiesOf('App', module)
-  .add('login', () => <App />);
+  .add('shows ChatView after login', () => <App initialState={{ userName: 'Mary' }} />);

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 function JoinMessage({ name }) {
   return (
@@ -7,5 +9,10 @@ function JoinMessage({ name }) {
     </div>
   );
 }
+
+
+JoinMessage.propTypes = {
+  name: PropTypes.string.isRequired,
+};
 
 export default JoinMessage;

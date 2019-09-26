@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LoginView from './components/LoginView';
 import ChatView from './components/ChatView';
@@ -9,6 +10,7 @@ class App extends React.Component {
 
     this.state = {
       userName: '',
+      ...props.initialState,
     };
   }
 
@@ -26,5 +28,16 @@ class App extends React.Component {
     );
   }
 }
+
+
+App.propTypes = {
+  initialState: PropTypes.shape({
+    userName: PropTypes.string,
+  }),
+};
+
+App.defaultProps = {
+  initialState: {},
+};
 
 export default App;

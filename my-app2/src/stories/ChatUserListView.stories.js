@@ -7,7 +7,7 @@ storiesOf('ChatUserListView', module)
   .add('default', () => <ChatUserListView />);
 
 storiesOf('ChatUserListView', module)
-  .add('show users', () => (
+  .add('shows users', () => (
     <ChatUserListView users={[
       { name: 'Mary' },
       { name: 'Tom' },

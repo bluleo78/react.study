@@ -4,61 +4,156 @@ exports[`Storyshots App default 1`] = `
 <div
   style={
     Object {
+      "height": 500,
       "margin": 20,
-      "minHeight": 500,
-      "outlineStyle": "solid",
-      "outlineWidth": "thin",
       "width": 300,
     }
   }
 >
-  <label
-    htmlFor="userNameInput"
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "100%",
+        "justifyContent": "center",
+        "outlineStyle": "solid",
+        "outlineWidth": "thin",
+        "width": "100%",
+      }
+    }
   >
-    이름:
-    <input
-      onChange={[Function]}
-      type="text"
-    />
-  </label>
-  <br />
-  <button
-    onClick={[Function]}
-    type="submit"
-  >
-    로그인
-  </button>
+    <label
+      htmlFor="userNameInput"
+    >
+      Nick:
+      <input
+        onChange={[Function]}
+        type="text"
+      />
+    </label>
+    <br />
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      로그인
+    </button>
+  </div>
 </div>
 `;
 
-exports[`Storyshots App login 1`] = `
+exports[`Storyshots App shows ChatView after login 1`] = `
 <div
   style={
     Object {
       "margin": 20,
       "minHeight": 500,
-      "outlineStyle": "solid",
-      "outlineWidth": "thin",
       "width": 300,
     }
   }
 >
-  <label
-    htmlFor="userNameInput"
+  <div
+    style={
+      Object {
+        "height": 450,
+        "margin": 10,
+      }
+    }
   >
-    이름:
-    <input
-      onChange={[Function]}
-      type="text"
-    />
-  </label>
-  <br />
-  <button
-    onClick={[Function]}
-    type="submit"
+    <div
+      style={
+        Object {
+          "float": "left",
+          "height": 450,
+          "outlineStyle": "solid",
+          "outlineWidth": "thin",
+          "width": 200,
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column-reverse",
+            "height": "100%",
+            "overflowY": "scroll",
+          }
+        }
+      >
+        <div />
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "float": "left",
+          "height": 450,
+          "marginLeft": 10,
+          "outlineStyle": "solid",
+          "outlineWidth": "thin",
+          "width": 70,
+        }
+      }
+    >
+      <div>
+        <p>
+          Me
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "float": "clear",
+        "height": 50,
+        "margin": 10,
+        "outlineStyle": "solid",
+        "outlineWidth": "thin",
+      }
+    }
   >
-    로그인
-  </button>
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100%",
+          "maxWidth": 300,
+        }
+      }
+    >
+      <input
+        onChange={[Function]}
+        style={
+          Object {
+            "flex": "1 1 100px",
+            "marginLeft": 5,
+          }
+        }
+        type="text"
+        value=""
+      />
+      <div
+        style={
+          Object {
+            "flex": "0 0 50px",
+            "margin": 5,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -107,26 +202,195 @@ exports[`Storyshots Button Text 1`] = `
 </button>
 `;
 
-exports[`Storyshots ChatHistoryView I has joined 1`] = `
-<div>
+exports[`Storyshots ChatHistoryView default 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column-reverse",
+      "height": "100%",
+      "overflowY": "scroll",
+    }
+  }
+>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView show user message 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column-reverse",
+      "height": "100%",
+      "overflowY": "scroll",
+    }
+  }
+>
   <div>
     <p>
-      Welcome, Mary. You have 0 messages
+      Mary says "Hahah"
     </p>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows a message in the view 1`] = `
+<div
+  style={
+    Object {
+      "height": 200,
+      "outlineStyle": "solid",
+      "width": 300,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column-reverse",
+        "height": "100%",
+        "overflowY": "scroll",
+      }
+    }
+  >
+    <div>
+      <p>
+        Tom says "Scroll"
+      </p>
+    </div>
+    <div />
   </div>
 </div>
 `;
 
-exports[`Storyshots ChatHistoryView check chat history 1`] = `
-<div>
+exports[`Storyshots ChatHistoryView shows enough chats off the view 1`] = `
+<div
+  style={
+    Object {
+      "height": 200,
+      "outlineStyle": "solid",
+      "width": 300,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column-reverse",
+        "height": "100%",
+        "overflowY": "scroll",
+      }
+    }
+  >
+    <div>
+      <p>
+        Mary says "Scroll 9"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 8"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 7"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 6"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 5"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 4"
+      </p>
+    </div>
+    <div>
+      <p>
+        Tom says "Scroll 3"
+      </p>
+    </div>
+    <div>
+      <p>
+        Tom says "Scroll 2"
+      </p>
+    </div>
+    <div>
+      <p>
+        Tom says "Scroll 1"
+      </p>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows join message 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column-reverse",
+      "height": "100%",
+      "overflowY": "scroll",
+    }
+  }
+>
+  <div>
+    <p>
+      Mary has joined
+    </p>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows welcome message 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column-reverse",
+      "height": "100%",
+      "overflowY": "scroll",
+    }
+  }
+>
   <div>
     <p>
       Welcome, Mary. You have 0 messages
     </p>
   </div>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows welcome/join/user messages 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column-reverse",
+      "height": "100%",
+      "overflowY": "scroll",
+    }
+  }
+>
   <div>
     <p>
-      Tom has joined
+      Mary says "Hi Tom"
     </p>
   </div>
   <div>
@@ -136,62 +400,99 @@ exports[`Storyshots ChatHistoryView check chat history 1`] = `
   </div>
   <div>
     <p>
-      Mary says "Hi Tom"
+      Tom has joined
     </p>
   </div>
-</div>
-`;
-
-exports[`Storyshots ChatHistoryView default 1`] = `<div />`;
-
-exports[`Storyshots ChatHistoryView someone has joined 1`] = `
-<div>
   <div>
     <p>
-      Mary has joined
+      Welcome, Mary. You have 0 messages
     </p>
   </div>
-</div>
-`;
-
-exports[`Storyshots ChatHistoryView someone says 1`] = `
-<div>
-  <div>
-    <p>
-      Mary says "Hahah"
-    </p>
-  </div>
+  <div />
 </div>
 `;
 
 exports[`Storyshots ChatInputView default 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "100%",
+      "maxWidth": 300,
+    }
+  }
+>
   <input
     onChange={[Function]}
+    style={
+      Object {
+        "flex": "1 1 100px",
+        "marginLeft": 5,
+      }
+    }
     type="text"
     value=""
   />
-  <button
-    onClick={[Function]}
-    type="submit"
+  <div
+    style={
+      Object {
+        "flex": "0 0 50px",
+        "margin": 5,
+      }
+    }
   >
-    입력
-  </button>
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      Enter
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatInputView shows input text 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "100%",
+      "maxWidth": 300,
+    }
+  }
+>
+  <input
+    onChange={[Function]}
+    style={
+      Object {
+        "flex": "1 1 100px",
+        "marginLeft": 5,
+      }
+    }
+    type="text"
+    value="Hello"
+  />
+  <div
+    style={
+      Object {
+        "flex": "0 0 50px",
+        "margin": 5,
+      }
+    }
+  >
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      Enter
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Storyshots ChatUserListView default 1`] = `<div />`;
-
-exports[`Storyshots ChatUserListView show users 1`] = `
-<div>
-  <p>
-    Mary
-  </p>
-  <p>
-    Tom
-  </p>
-</div>
-`;
 
 exports[`Storyshots ChatUserListView show users including me 1`] = `
 <div>
@@ -200,6 +501,17 @@ exports[`Storyshots ChatUserListView show users including me 1`] = `
   </p>
   <p>
     Mary
+  </p>
+</div>
+`;
+
+exports[`Storyshots ChatUserListView shows users 1`] = `
+<div>
+  <p>
+    Mary
+  </p>
+  <p>
+    Tom
   </p>
 </div>
 `;
@@ -233,7 +545,18 @@ exports[`Storyshots ChatView default 1`] = `
         }
       }
     >
-      <div />
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column-reverse",
+            "height": "100%",
+            "overflowY": "scroll",
+          }
+        }
+      >
+        <div />
+      </div>
     </div>
     <div
       style={
@@ -265,18 +588,181 @@ exports[`Storyshots ChatView default 1`] = `
       }
     }
   >
-    <div>
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100%",
+          "maxWidth": 300,
+        }
+      }
+    >
       <input
         onChange={[Function]}
+        style={
+          Object {
+            "flex": "1 1 100px",
+            "marginLeft": 5,
+          }
+        }
         type="text"
         value=""
       />
-      <button
-        onClick={[Function]}
-        type="submit"
+      <div
+        style={
+          Object {
+            "flex": "0 0 50px",
+            "margin": 5,
+          }
+        }
       >
-        입력
-      </button>
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatView shows multiple chats with users 1`] = `
+<div
+  style={
+    Object {
+      "margin": 20,
+      "minHeight": 500,
+      "width": 300,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "height": 450,
+        "margin": 10,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "float": "left",
+          "height": 450,
+          "outlineStyle": "solid",
+          "outlineWidth": "thin",
+          "width": 200,
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column-reverse",
+            "height": "100%",
+            "overflowY": "scroll",
+          }
+        }
+      >
+        <div>
+          <p>
+            Mary says "Hi Tom"
+          </p>
+        </div>
+        <div>
+          <p>
+            Tom says "Hi"
+          </p>
+        </div>
+        <div>
+          <p>
+            Tom has joined
+          </p>
+        </div>
+        <div>
+          <p>
+            Welcome, Mary. You have 0 messages
+          </p>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "float": "left",
+          "height": 450,
+          "marginLeft": 10,
+          "outlineStyle": "solid",
+          "outlineWidth": "thin",
+          "width": 70,
+        }
+      }
+    >
+      <div>
+        <p>
+          Me
+        </p>
+        <p>
+          Tom
+        </p>
+        <p>
+          Paul
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "float": "clear",
+        "height": 50,
+        "margin": 10,
+        "outlineStyle": "solid",
+        "outlineWidth": "thin",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100%",
+          "maxWidth": 300,
+        }
+      }
+    >
+      <input
+        onChange={[Function]}
+        style={
+          Object {
+            "flex": "1 1 100px",
+            "marginLeft": 5,
+          }
+        }
+        type="text"
+        value=""
+      />
+      <div
+        style={
+          Object {
+            "flex": "0 0 50px",
+            "margin": 5,
+          }
+        }
+      >
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          Enter
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -294,30 +780,43 @@ exports[`Storyshots LoginView default 1`] = `
 <div
   style={
     Object {
+      "height": 500,
       "margin": 20,
-      "minHeight": 500,
-      "outlineStyle": "solid",
-      "outlineWidth": "thin",
       "width": 300,
     }
   }
 >
-  <label
-    htmlFor="userNameInput"
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "100%",
+        "justifyContent": "center",
+        "outlineStyle": "solid",
+        "outlineWidth": "thin",
+        "width": "100%",
+      }
+    }
   >
-    이름:
-    <input
-      onChange={[Function]}
-      type="text"
-    />
-  </label>
-  <br />
-  <button
-    onClick={[Function]}
-    type="submit"
-  >
-    로그인
-  </button>
+    <label
+      htmlFor="userNameInput"
+    >
+      Nick:
+      <input
+        onChange={[Function]}
+        type="text"
+      />
+    </label>
+    <br />
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      로그인
+    </button>
+  </div>
 </div>
 `;
 
@@ -514,7 +1013,7 @@ exports[`Storyshots WelcomeMessage default 1`] = `
 </div>
 `;
 
-exports[`Storyshots WelcomeMessage has unread messages 1`] = `
+exports[`Storyshots WelcomeMessage shows welcome message with unread messages 1`] = `
 <div>
   <p>
     Welcome, Mary. You have 1 messages

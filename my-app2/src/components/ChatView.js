@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ChatHistoryView from './ChatHistoryView';
 import ChatUserListView from './ChatUserListView';
@@ -11,12 +12,14 @@ class ChatView extends React.Component {
       currentUser: { name: props.userName },
       users: [],
       messages: [],
+      ...props.initialState,
     };
   }
 
   handleSubmitChatInput = (text) => {
     this.setState((state) => ({
       messages: [...state.messages, {
+        id: new Date().getTime(),
         type: 'user',
         sender: state.currentUser.name,
         text,
@@ -49,11 +52,35 @@ class ChatView extends React.Component {
           </div>
         </div>
         <div style={styleFooter}>
-          <ChatInputView onSubmit={this.handleSubmitChatInput} />
+          <ChatInputView onSubmitMessage={this.handleSubmitChatInput} />
         </div>
       </div>
     );
   }
 }
+
+
+ChatView.propTypes = {
+  userName: PropTypes.string.isRequired,
+  initialState: PropTypes.shape({
+    currentUser: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+    users: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+    })),
+    messages: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      type: PropTypes.string.isRequired,
+      sender: PropTypes.string,
+      receiver: PropTypes.string,
+      text: PropTypes.string,
+    })),
+  }),
+};
+
+ChatView.defaultProps = {
+  initialState: {},
+};
 
 export default ChatView;
