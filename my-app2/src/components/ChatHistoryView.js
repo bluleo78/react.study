@@ -5,6 +5,9 @@ import WelcomeMessage from './WelcomeMessage';
 import UserMessage from './UserMessage';
 import JoinMessage from './JoinMessage';
 
+import styles from './ChatHistoryView.module.scss';
+
+
 class ChatHistoryView extends React.Component {
   constructor(props) {
     super(props);
@@ -40,11 +43,8 @@ class ChatHistoryView extends React.Component {
     });
     messageList.reverse();
 
-    const styleHistoryContainer = {
-      display: 'flex', flexDirection: 'column-reverse', overflowY: 'scroll', height: '100%',
-    };
     return (
-      <div style={styleHistoryContainer}>
+      <div className={styles.view}>
         {messageList}
         <div ref={this.messagesEndRef} />
       </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './ChatInputView.module.scss';
+
 
 class ChatInputView extends React.Component {
   constructor(props) {
@@ -27,22 +29,15 @@ class ChatInputView extends React.Component {
   render() {
     const { text } = this.state;
 
-    const styleContainer = {
-      display: 'flex',
-      alignItems: 'center',
-      height: '100%',
-      maxWidth: 300,
-    };
-
     return (
-      <div style={styleContainer}>
+      <div className={styles.view}>
         <input
-          style={{ flex: '1 1 100px', marginLeft: 5 }}
+          className={styles.view__input}
           type="text"
           value={text}
           onChange={this.handleChange}
         />
-        <div style={{ flex: '0 0 50px', margin: 5 }}>
+        <div className={styles.view__btn}>
           <button type="submit" onClick={this.handleClickButton}>Enter</button>
         </div>
       </div>

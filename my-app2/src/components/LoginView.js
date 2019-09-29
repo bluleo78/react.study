@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './LoginView.module.scss';
+
 
 class LoginView extends React.Component {
   constructor(props) {
@@ -24,21 +26,9 @@ class LoginView extends React.Component {
 
 
   render() {
-    const styleView = { width: 300, height: 500, margin: 20 };
-    const styleBody = {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '100%',
-      height: '100%',
-      outlineStyle: 'solid',
-      outlineWidth: 'thin',
-    };
-
     return (
-      <div style={styleView}>
-        <div style={styleBody}>
+      <div className={styles.view}>
+        <div className={styles.view__body}>
           <label htmlFor="userNameInput">
             Nick:
             <input

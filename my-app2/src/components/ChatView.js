@@ -5,6 +5,9 @@ import ChatHistoryView from './ChatHistoryView';
 import ChatUserListView from './ChatUserListView';
 import ChatInputView from './ChatInputView';
 
+import styles from './ChatView.module.scss';
+
+
 class ChatView extends React.Component {
   constructor(props) {
     super(props);
@@ -29,29 +32,18 @@ class ChatView extends React.Component {
 
   render() {
     const { currentUser, users, messages } = this.state;
-    const styleView = { width: 300, minHeight: 500, margin: 20 };
-    const styleBody = { height: 450, margin: 10 };
-    const styleHistory = {
-      width: 200, height: 450, outlineStyle: 'solid', outlineWidth: 'thin', float: 'left',
-    };
-    const styleUserList = {
-      marginLeft: 10, width: 70, height: 450, outlineStyle: 'solid', outlineWidth: 'thin', float: 'left',
-    };
-    const styleFooter = {
-      height: 50, outlineStyle: 'solid', outlineWidth: 'thin', margin: 10, float: 'clear',
-    };
 
     return (
-      <div style={styleView}>
-        <div style={styleBody}>
-          <div style={styleHistory}>
+      <div className={styles.view}>
+        <div className={styles.view__body}>
+          <div className={styles.view__body__center}>
             <ChatHistoryView currentUser={currentUser} messages={messages} />
           </div>
-          <div style={styleUserList}>
+          <div className={styles.view__body__right}>
             <ChatUserListView currentUser={currentUser} users={users} />
           </div>
         </div>
-        <div style={styleFooter}>
+        <div className={styles.view__footer}>
           <ChatInputView onSubmitMessage={this.handleSubmitChatInput} />
         </div>
       </div>
