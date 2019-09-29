@@ -30,6 +30,11 @@ class ChatView extends React.Component {
     }));
   };
 
+  handleSelectUser = (text) => {
+    const { onSelectUser } = this.props;
+    onSelectUser(text);
+  };
+
   render() {
     const { currentUser, users, messages } = this.state;
 
@@ -40,7 +45,11 @@ class ChatView extends React.Component {
             <ChatHistoryView currentUser={currentUser} messages={messages} />
           </div>
           <div className={styles.view__body__right}>
-            <ChatUserListView currentUser={currentUser} users={users} />
+            <ChatUserListView
+              currentUser={currentUser}
+              users={users}
+              onSelectUser={this.handleSelectUser}
+            />
           </div>
         </div>
         <div className={styles.view__footer}>
@@ -69,10 +78,12 @@ ChatView.propTypes = {
       text: PropTypes.string,
     })),
   }),
+  onSelectUser: PropTypes.func,
 };
 
 ChatView.defaultProps = {
   initialState: {},
+  onSelectUser: () => null,
 };
 
 export default ChatView;

@@ -13,9 +13,7 @@ storiesOf('ChatUserListView', module)
       { name: 'Tom' },
     ]}
     />
-  ));
-
-storiesOf('ChatUserListView', module)
+  ))
   .add('show users including me', () => (
     <ChatUserListView
       currentUser={
@@ -25,5 +23,29 @@ storiesOf('ChatUserListView', module)
         { name: 'Mary' },
         { name: 'Tom' },
       ]}
+    />
+  ))
+  .add('show users with selected user', () => (
+    <ChatUserListView
+      currentUser={
+        { name: 'Tom' }
+      }
+      users={[
+        { name: 'Mary' },
+        { name: 'Tom' },
+      ]}
+      selectedUserName="Mary"
+    />
+  ))
+  .add('show users with selected me', () => (
+    <ChatUserListView
+      currentUser={
+        { name: 'Tom' }
+      }
+      users={[
+        { name: 'Mary' },
+        { name: 'Tom' },
+      ]}
+      selectedUserName="Tom"
     />
   ));
