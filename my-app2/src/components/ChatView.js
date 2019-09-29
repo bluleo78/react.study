@@ -16,18 +16,17 @@ class ChatView extends React.Component {
 
   render() {
     const {
-      currentUser, users, messages, onSelectUser, onSubmitChatInput,
+      users, messages, onSelectUser, onSubmitChatInput,
     } = this.props;
 
     return (
       <div className={styles.view}>
         <div className={styles.view__body}>
           <div className={styles.view__body__center}>
-            <ChatHistoryView currentUser={currentUser} messages={messages} />
+            <ChatHistoryView messages={messages} />
           </div>
           <div className={styles.view__body__right}>
             <ChatUserListView
-              currentUser={currentUser}
               users={users}
               onSelectUser={onSelectUser}
             />

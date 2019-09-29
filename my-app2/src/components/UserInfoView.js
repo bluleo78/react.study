@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { UserContext } from '../contexts';
+
 import styles from './LoginView.module.scss';
 
 
@@ -17,16 +19,18 @@ class UserInfoView extends React.Component {
 
 
   handleClickButton=() => {
-    const { onChangeUser, currentUser, selectedUserName } = this.props;
+    const { onChangeUser, selectedUserName } = this.props;
     const { name } = this.state;
+    const currentUser = this.context;
 
     onChangeUser(currentUser.name === selectedUserName ? name : null);
   }
 
 
   render() {
-    const { currentUser, selectedUserName } = this.props;
+    const { selectedUserName } = this.props;
     const { name } = this.state;
+    const currentUser = this.context;
 
     return (
       <div className={styles.view}>
@@ -48,17 +52,14 @@ class UserInfoView extends React.Component {
   }
 }
 
+UserInfoView.contextType = UserContext;
 
 UserInfoView.propTypes = {
-  currentUser: PropTypes.shape({
-    name: PropTypes.string,
-  }),
   selectedUserName: PropTypes.string.isRequired,
   onChangeUser: PropTypes.func,
 };
 
 UserInfoView.defaultProps = {
-  currentUser: null,
   onChangeUser: () => null,
 };
 

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import LoginView from './components/LoginView';
 import ChatView from './components/ChatView';
 import UserInfoView from './components/UserInfoView';
+import { UserContext } from './contexts';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,14 @@ class App extends React.Component {
   }
 
   handleSubmitLogin = (userName) => {
-    this.setState({ currentUser: { name: userName } });
+    this.setState({
+      currentUser: { name: userName },
+      messages: [{
+        id: new Date().getTime(),
+        type: 'welcome',
+        receiver: userName,
+      }],
+    });
   };
 
   handleSubmitChatInput = (text) => {
@@ -50,12 +58,11 @@ class App extends React.Component {
       currentUser, users, messages, selectedUserName,
     } = this.state;
     return (
-      <>
+      <UserContext.Provider value={currentUser}>
         {!currentUser ? (<LoginView onSubmitLogin={this.handleSubmitLogin} />) : null}
         {currentUser && !selectedUserName
           ? (
             <ChatView
-              currentUser={currentUser}
               users={users}
               messages={messages}
               onSubmitChatInput={this.handleSubmitChatInput}
@@ -65,12 +72,11 @@ class App extends React.Component {
         {currentUser && selectedUserName
           ? (
             <UserInfoView
-              currentUser={currentUser}
               selectedUserName={selectedUserName}
               onChangeUser={this.handleChangeUser}
             />
           ) : null}
-      </>
+      </UserContext.Provider>
     );
   }
 }
