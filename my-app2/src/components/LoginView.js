@@ -37,7 +37,7 @@ class LoginView extends React.Component {
             />
           </label>
           <br />
-          <button type="submit" onClick={this.handleClickButton}>로그인</button>
+          <button type="submit" onClick={this.handleClickButton}>Login</button>
         </div>
       </div>
     );
