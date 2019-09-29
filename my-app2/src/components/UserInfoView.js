@@ -11,22 +11,23 @@ class UserInfoView extends React.Component {
   }
 
 
-  handleChange=(e) => {
+  handleChangeName=(e) => {
     this.setState({ name: e.target.value });
   }
 
 
   handleClickButton=() => {
-    const { onChangeUser } = this.props;
+    const { onChangeUser, currentUser, selectedUserName } = this.props;
     const { name } = this.state;
-    if (onChangeUser) {
-      onChangeUser(name);
-    }
+
+    onChangeUser(currentUser.name === selectedUserName ? name : null);
   }
 
 
   render() {
-    const { userName, selectedUserName } = this.props;
+    const { currentUser, selectedUserName } = this.props;
+    const { name } = this.state;
+
     return (
       <div className={styles.view}>
         <div className={styles.view__body}>
@@ -34,13 +35,13 @@ class UserInfoView extends React.Component {
             Name:
             <input
               type="text"
-              value={selectedUserName}
-              onChange={this.handleChange}
-              disabled={userName === selectedUserName ? null : 'disabled'}
+              value={name || selectedUserName}
+              onChange={this.handleChangeName}
+              disabled={currentUser.name === selectedUserName ? null : 'disabled'}
             />
           </label>
           <br />
-          <button type="submit" onClick={this.handleClickButton}>{`${userName === selectedUserName ? 'Edit' : 'Ok'}`}</button>
+          <button type="submit" onClick={this.handleClickButton}>{`${currentUser.name === selectedUserName ? 'Edit' : 'Ok'}`}</button>
         </div>
       </div>
     );
@@ -49,12 +50,15 @@ class UserInfoView extends React.Component {
 
 
 UserInfoView.propTypes = {
-  userName: PropTypes.string.isRequired,
+  currentUser: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   selectedUserName: PropTypes.string.isRequired,
   onChangeUser: PropTypes.func,
 };
 
 UserInfoView.defaultProps = {
+  currentUser: null,
   onChangeUser: () => null,
 };
 

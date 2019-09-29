@@ -10,14 +10,27 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      userName: '',
       selectedUserName: '',
+      currentUser: null,
+      users: [{ name: 'Mary' }],
+      messages: [],
       ...props.initialState,
     };
   }
 
   handleSubmitLogin = (userName) => {
-    this.setState({ userName });
+    this.setState({ currentUser: { name: userName } });
+  };
+
+  handleSubmitChatInput = (text) => {
+    this.setState((state) => ({
+      messages: [...state.messages, {
+        id: new Date().getTime(),
+        type: 'user',
+        sender: state.currentUser.name,
+        text,
+      }],
+    }));
   };
 
   handleSelectUser = (userName) => {
@@ -25,28 +38,34 @@ class App extends React.Component {
   };
 
   handleChangeUser = (userName) => {
-    this.setState({ userName, selectedUserName: null });
+    if (userName) {
+      this.setState({ currentUser: { name: userName }, selectedUserName: null });
+    } else {
+      this.setState({ selectedUserName: null });
+    }
   };
 
   render() {
-    const { userName, selectedUserName } = this.state;
+    const {
+      currentUser, users, messages, selectedUserName,
+    } = this.state;
     return (
       <>
-        {!userName ? (<LoginView onSubmitLogin={this.handleSubmitLogin} />) : null}
-        {userName && !selectedUserName
+        {!currentUser ? (<LoginView onSubmitLogin={this.handleSubmitLogin} />) : null}
+        {currentUser && !selectedUserName
           ? (
             <ChatView
-              userName={userName}
+              currentUser={currentUser}
+              users={users}
+              messages={messages}
+              onSubmitChatInput={this.handleSubmitChatInput}
               onSelectUser={this.handleSelectUser}
-              initialState={{
-                users: [{ name: 'Mary' }],
-              }}
             />
           ) : null}
-        {userName && selectedUserName
+        {currentUser && selectedUserName
           ? (
             <UserInfoView
-              userName={userName}
+              currentUser={currentUser}
               selectedUserName={selectedUserName}
               onChangeUser={this.handleChangeUser}
             />
@@ -56,10 +75,21 @@ class App extends React.Component {
   }
 }
 
-
 App.propTypes = {
   initialState: PropTypes.shape({
-    userName: PropTypes.string,
+    currentUser: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+    users: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+    })),
+    messages: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      type: PropTypes.string.isRequired,
+      sender: PropTypes.string,
+      receiver: PropTypes.string,
+      text: PropTypes.string,
+    })),
     selectedUserName: PropTypes.string,
   }),
 };
